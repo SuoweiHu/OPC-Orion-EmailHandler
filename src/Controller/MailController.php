@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\lucius_html_mail\Controller;
+namespace Drupal\demo_mail\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\lucius_html_mail\Services\LuciusMail;
+use Drupal\demo_mail\Services\DemoMail;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,7 +19,7 @@ class MailController extends ControllerBase {
   /**
    * Constructor
    */
-  public function __construct(LuciusMail $mail_service) {
+  public function __construct(DemoMail $mail_service) {
     $this->mail_service = $mail_service;
   }
 
@@ -28,7 +28,7 @@ class MailController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('lucius_html_mail.mail')
+      $container->get('demo_mail.mail')
     );
   }
 
@@ -45,7 +45,7 @@ class MailController extends ControllerBase {
     $params['lower_body'] = 'This is a lower body example text.';
     $params['users'] = $this->getAllUsers();
     // Send mail via service.
-    $mail_service = \Drupal::service('lucius_html_mail.mail');
+    $mail_service = \Drupal::service('demo_mail.mail');
     $mail_service->sendMail($params);
     return array();
   }

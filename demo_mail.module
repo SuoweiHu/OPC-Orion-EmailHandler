@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains lucius_html_mail.module.
+ * Contains demo_mail.module.
  */
 
 
@@ -10,13 +10,13 @@
  * Implements hook_mail().
  *
  */
-function lucius_html_mail_mail($key, &$message, $params) {
+function demo_mail_mail($key, &$message, $params) {
 
   $site_name = \Drupal::config('system.site')->get('name');
   $site_mail = \Drupal::config('system.site')->get('mail');
 
   switch ($key) {
-    case 'lucius_html_mail':
+    case 'demo_mail':
       $message['headers']['Reply-To'] = $site_mail;
       $message['headers']['Content-Type'] = 'text/html';
       $message['headers']['From'] = $site_name .'<' . $site_mail . '>';

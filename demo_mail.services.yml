@@ -1,0 +1,4 @@
+services:
+  demo_mail.mail:
+    class: Drupal\demo_mail\Services\DemoMail
+    arguments: ['@plugin.manager.mail','@current_user']

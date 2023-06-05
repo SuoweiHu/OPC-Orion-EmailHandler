@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\lucius_html_mail\Services;
+namespace Drupal\demo_mail\Services;
 
 
 /**
- * Class LuciusMail.
+ * Class DemoMail.
  */
-class LuciusMail{
+class DemoMail{
 
-  /**
+
    * @var $route
    */
   protected $mailer;
@@ -37,8 +37,8 @@ class LuciusMail{
   public function sendMail($params = array()) {
 
     // Build mail vars.
-    $module = 'lucius_html_mail';
-    $key = 'lucius_html_mail';
+    $module = 'demo_mail';
+    $key = 'demo_mail';
     $lang_code = $this->current_user->getPreferredLangcode();
     $params['base_url'] = \Drupal::request()->getSchemeAndHttpHost();
     $params['sender_name'] = $this->current_user->getAccountName();
